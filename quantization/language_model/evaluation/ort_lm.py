@@ -86,7 +86,6 @@ class ORTCausalLM(BaseLM):
         self._add_special_tokens = add_special_tokens
         model_kwargs = {"load_in_8bit": load_in_8bit}
         self._config = AutoConfig.from_pretrained(pretrained)
-        print(f"Executing ONNX models under {pretrained}")
         self.model: ORTModelForCausalLM = ORTModelForCausalLM.from_pretrained(
             pretrained,
             revision=revision,
